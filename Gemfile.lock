@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     administrate-base_controller (0.1.0)
-      activesupport
 
 GEM
   remote: https://rubygems.org/
