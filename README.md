@@ -60,7 +60,7 @@ module Admin
     def current_ability
       @_current_ability ||= Ability.new(current_admin_user)
      end
-    
+
     def show_action?(action, resource)
       current_ability.can?(action.to_sym, resource)
     end
@@ -73,13 +73,13 @@ Additionally you can correctly hide resources the `current_ability` can not `act
 ```ruby
 module Admin
   class ApplicationController < Administrate::ApplicationController
-    
+
     # ...
-     
+
     def scoped_resource
       super.accessible_by(current_ability, action_name.to_sym)
     end
-  end 
+  end
 end
 ```
 
@@ -91,8 +91,8 @@ This works without this gem, but this gem allows you to changed `scoped_resource
 module Admin
   class BookController < ::Admin::ApplicationController
     def find_resource(param)
-      scoped_resource.friendly.find(param)  
-    end 
+      scoped_resource.friendly.find(param)
+    end
   end
 end
 ```
@@ -107,7 +107,7 @@ module Admin
   class BookController < ::Admin::ApplicationController
     def index_scoped_resource
       super.where(author: Current.author)
-    end 
+    end
   end
 end
 ```
@@ -124,7 +124,7 @@ module Admin
   class BookController < ::Admin::ApplicationController
     def new_resource
       resource_class.new(author: Current.author)
-    end 
+    end
   end
 end
 ```
@@ -138,12 +138,12 @@ field, which contents have been serialized, you can overwrite `read_param`:
 module Admin
   class BookController < ::Admin::ApplicationController
     JSON_FIELDS = %w[options content].freeze
-    
+
     def read_param(key, value)
       return Oj.load(value) if JSON_FIELDS.include?(String(key))
       super(key, value)
     end
-  end 
+  end
 end
 ```
 
@@ -152,21 +152,20 @@ Alternatively you can use the [`administrate-serialized_fields`](https://github.
 ## Related
 
 - [`Administrate`](https://github.com/thoughtbot/administrate): A Rails engine that helps you put together a super-flexible admin dashboard.
-<!-- - [`Administrate::BaseController`](https://github.com/XPBytes/administrate-base_controller): A set of application controller improvements. -->
 
 ### Concerns
 
-- [`Administrate::DefaultOrder`](https://github.com/XPBytes/administrate-default_order): Sets the default order for a resource in a administrate controller.
-- [`Administrate::SerializedFields`](https://github.com/XPBytes/administrate-serialized_fields): Automatically deserialize administrate fields on form submit.
+- [`Administrate::DefaultOrder`](https://github.com/XPBytes/administrate-default_order): :1234: Sets the default order for a resource in a administrate controller.
+- [`Administrate::SerializedFields`](https://github.com/XPBytes/administrate-serialized_fields): :ab: Automatically deserialize administrate fields on form submit.
 
 ### Fields
 
-- [`Administrate::Field::Code`](https://github.com/XPBytes/administrate-field-code): A `text` field that shows code.
-- [`Administrate::Field::Hyperlink`](https://github.com/XPBytes/administrate-field-hyperlink): A `string` field that is shows a hyperlink.
-- [`Adminisrtate::Field::JsonEditor`](https://github.com/XPBytes/administrate-field-json_editor): A `text` field that shows a [JSON editor](https://github.com/josdejong/jsoneditor).
-- [`Administrate::Field::ScopedBelongsTo`](https://github.com/XPBytes/administrate-field-scoped_belongs_to): A `belongs_to` field that yields itself to the scope `lambda`.
-- [`Administrate::Field::ScopedHasMany`](https://github.com/XPBytes/administrate-field-scoped_has_many): A `has_many` field that yields itself to the scope `lambda`.
-- [`Administrate::Field::TimeAgo`](https://github.com/XPBytes/administrate-field-time_ago): A `date_time` field that shows its data as `time_ago` since.
+- [`Administrate::Field::Code`](https://github.com/XPBytes/administrate-field-code): :pencil: A `text` field that shows code.
+- [`Administrate::Field::Hyperlink`](https://github.com/XPBytes/administrate-field-hyperlink): :pencil: A `string` field that is shows a hyperlink.
+- [`Adminisrtate::Field::JsonEditor`](https://github.com/XPBytes/administrate-field-json_editor): :pencil: A `text` field that shows a [JSON editor](https://github.com/josdejong/jsoneditor).
+- [`Administrate::Field::ScopedBelongsTo`](https://github.com/XPBytes/administrate-field-scoped_belongs_to): :pencil: A `belongs_to` field that yields itself to the scope `lambda`.
+- [`Administrate::Field::ScopedHasMany`](https://github.com/XPBytes/administrate-field-scoped_has_many): :pencil: A `has_many` field that yields itself to the scope `lambda`.
+- [`Administrate::Field::TimeAgo`](https://github.com/XPBytes/administrate-field-time_ago): :pencil: A `date_time` field that shows its data as `time_ago` since.
 
 ## Development
 
