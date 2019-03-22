@@ -41,6 +41,10 @@ You get the following _protected_ methods for free, which you may override:
 | `authorize_resource` | `show_action?(action_name.to_sym, resource)` | Allows you to change how resources are authorized |
 | `resource_params` | Calls `read_param(k, v)` for each instead of `transform_values` | Allows you to change how params are read |
 | `read_param` | Calls `read_param_value` if applicable | Allows you to change how a param is read based on its key |
+| `render_index_json` | `json: resources.to_json` | Easily override json responses on the index route without changing the resources logic |
+| `render_index_any` | `locals: resources, page, ...` | Easily override any responses on the index route without changing the resources logic |
+| `render_show_json` | `json: resource.to_json` | Easily override json responses on the show route without changing the resources logic |
+| `render_show_any` | `locals: resource, page, ...` | Easily override any responses on the show route without changing the resources logic |
 
 ```ruby
 module Admin
@@ -163,6 +167,7 @@ Alternatively you can use the [`administrate-serialized_fields`](https://github.
 - [`Administrate::Field::Code`](https://github.com/XPBytes/administrate-field-code): :pencil: A `text` field that shows code.
 - [`Administrate::Field::Hyperlink`](https://github.com/XPBytes/administrate-field-hyperlink): :pencil: A `string` field that is shows a hyperlink.
 - [`Adminisrtate::Field::JsonEditor`](https://github.com/XPBytes/administrate-field-json_editor): :pencil: A `text` field that shows a [JSON editor](https://github.com/josdejong/jsoneditor).
+- [`Administrate::Field::LazyBelongsTo`](https://github.com/XPBytes/administrate-field-lazy_belongs_to): :pencil: An input field that lazy loads `belongs_to` values.
 - [`Administrate::Field::ScopedBelongsTo`](https://github.com/XPBytes/administrate-field-scoped_belongs_to): :pencil: A `belongs_to` field that yields itself to the scope `lambda`.
 - [`Administrate::Field::ScopedHasMany`](https://github.com/XPBytes/administrate-field-scoped_has_many): :pencil: A `has_many` field that yields itself to the scope `lambda`.
 - [`Administrate::Field::TimeAgo`](https://github.com/XPBytes/administrate-field-time_ago): :pencil: A `date_time` field that shows its data as `time_ago` since.

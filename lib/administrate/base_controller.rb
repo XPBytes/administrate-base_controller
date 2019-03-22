@@ -10,14 +10,11 @@ module Administrate
           resources = apply_resource_includes(resources)
           resources = order.apply(resources)
           resources = resources.page(params[:page]).per(records_per_page)
-          page = index_page
 
-          render locals: {
-              resources: resources,
-              search_term: search_term,
-              page: page,
-              show_search_bar: show_search_bar?,
-          }
+          respond_to do |format|
+            format.json { render_index_json(resources) }
+            format.any { render_index_any(resources, format: format) }
+          end
         end
 
         def new
@@ -31,7 +28,10 @@ module Administrate
         end
 
         def show
-          render locals: { page: show_page }
+          respond_to do |format|
+            format.json { render_show_json(requested_resource) }
+            format.any { render_show_any(requested_resource, format: format) }
+          end
         end
 
         protected
@@ -52,8 +52,8 @@ module Administrate
           Administrate::Page::Collection.new(dashboard, order: order)
         end
 
-        def show_page
-          Administrate::Page::Show.new(dashboard, requested_resource)
+        def show_page(resource = requested_resource)
+          Administrate::Page::Show.new(dashboard, resource)
         end
 
         def new_page(resource)
@@ -85,6 +85,29 @@ module Administrate
           end
 
           data
+        end
+
+        def render_index_json(resources)
+          render json: resources
+        end
+
+        def render_index_any(resources, format:)
+          page = index_page
+
+          render locals: {
+            resources: resources,
+            search_term: search_term,
+            page: page,
+            show_search_bar: show_search_bar?,
+          }
+        end
+
+        def render_show_json(resource = requested_resource)
+          render json: resource
+        end
+
+        def render_show_any(resource = requested_resource, format:)
+          render locals: { page: show_page(resource) }
         end
 
         private
