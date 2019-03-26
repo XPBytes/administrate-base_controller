@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    administrate-base_controller (0.3.0)
+    administrate-base_controller (0.4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -173,7 +173,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  administrate (>= 0.11.0, < 1)
+  administrate (~> 0.11.0)
   administrate-base_controller!
   bundler (~> 2.0)
   minitest (~> 5.0)

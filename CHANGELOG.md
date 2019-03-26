@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0
+
+- Extract all methods into a module `BaseController`
+- Remove default `after_initialize` evaluation. You may require `administrate/base_controller/engine` instead
+- Add some annotations to some of the methods
+
 ## 0.3.0
 
 - Add json rendering for index and show paths
