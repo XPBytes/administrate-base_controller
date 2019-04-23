@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.1
+
+- 🚨 Update nokogiri: 1.10.2 → 1.10.3
+- Update all of rails to version 5.2.3
+
 ## 0.4.0
 
 - Extract all methods into a module `BaseController`
