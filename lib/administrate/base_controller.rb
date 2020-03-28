@@ -4,7 +4,7 @@ module Administrate
   module BaseController
     def index
       resources = index_resources
-      resources = apply_resource_includes(resources)
+      resources = apply_collection_includes(resources)
       resources = order.apply(resources)
       resources = resources.page(params[:page]).per(records_per_page)
 
