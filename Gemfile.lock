@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    administrate-base_controller (0.4.1)
+    administrate-base_controller (0.5.0)
 
 GEM
   remote: https://rubygems.org/
@@ -177,4 +177,4 @@ DEPENDENCIES
   rake (~> 13.0)
 
 BUNDLED WITH
-   2.0.1
+   2.1.4

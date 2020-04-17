@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.0
+
+- Update collection call in `index` and `administrate` dependency
+- Update all dependencies
+
 ## 0.4.1
 
 - 🚨 Update nokogiri: 1.10.2 → 1.10.3
