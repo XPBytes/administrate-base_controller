@@ -24,7 +24,7 @@ Or install it yourself as:
 
 ## Usage
 
-When you require this gem, you can `include Adminstrate::BaseControll` in your admin `ApplicationController`. 
+When you require this gem, you can `include Administrate::BaseController` in your admin `ApplicationController`. 
 Alternatively require `administrate/base_controller/engine` instead (e.g. in your Gemfile). The base controller 
 functionality will be added to the `administrate/application_controller`.
 
