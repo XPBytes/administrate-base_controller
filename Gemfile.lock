@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    administrate-base_controller (0.5.0)
+    administrate-base_controller (0.6.0)
 
 GEM
   remote: https://rubygems.org/
@@ -189,7 +189,7 @@ DEPENDENCIES
   administrate-base_controller!
   bundler (~> 2.0)
   minitest (~> 5.0)
-  rails
+  rails (~> 6.0)
   rake (~> 13.0)
 
 BUNDLED WITH

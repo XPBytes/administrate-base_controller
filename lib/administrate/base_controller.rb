@@ -102,8 +102,10 @@ module Administrate
     end
 
     def read_param(_, data)
-      if data.is_a?(ActionController::Parameters) && data[:type]
-        return read_param_value(data)
+      if data.is_a?(Hash) && data[:type]
+        if data[:type] == Administrate::Field::Polymorphic.to_s
+          return GlobalID::Locator.locate(data[:value])
+        end
       end
 
       data

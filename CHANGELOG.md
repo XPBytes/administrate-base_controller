@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.0
+
+- Fixes transforming polymorphic relations through `read_param`
+- Update all dependencies
+
 ## 0.5.0
 
 - Update collection call in `index` and `administrate` dependency
