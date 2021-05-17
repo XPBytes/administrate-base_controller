@@ -6,7 +6,7 @@ module Administrate
       resources = index_resources
       resources = apply_collection_includes(resources)
       resources = order.apply(resources)
-      resources = resources.page(params[:page]).per(records_per_page)
+      resources = resources.page(params[:_page]).per(records_per_page)
 
       respond_to do |format|
         format.json { render_index_json(resources) }
