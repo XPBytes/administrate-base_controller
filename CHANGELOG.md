@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.0
+
+- Update pagination params
+
 ## 0.6.0
 
 - Fixes transforming polymorphic relations through `read_param`
