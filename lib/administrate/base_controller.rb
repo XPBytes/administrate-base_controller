@@ -55,7 +55,7 @@ module Administrate
     # +dashboard_class+ and +search_term+. Overwrite this to turn off search.
     #
     def index_resources
-      Administrate::Search.new(index_scoped_resource, dashboard_class, search_term).run
+      Administrate::Search.new(index_scoped_resource, dashboard, search_term).run
     end
 
     ##
